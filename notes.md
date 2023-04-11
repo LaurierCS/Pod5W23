@@ -15,7 +15,7 @@
     - ie. socket knows what ip address and application the recieving host to deliver the msg too
 3. Listening to a socket:
     - `int listen(int sockfd, int backlog);`
-    - Server listents to a socket and waits for a client to make a connection with the server. 
+    - Server listens to a socket and waits for a client to make a connection with the server. 
     - Backlog defines max length of the queue for pending connections to the server 
 4. Accepting a socket connection
     - `int new_socket = accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);`
