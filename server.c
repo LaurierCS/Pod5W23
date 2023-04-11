@@ -10,9 +10,9 @@ int main(int argc, char const* argv[])
 	int server_fd, socket; // creating a socket file handler/descriptor and the socket pipe for communication
 	struct sockaddr_in address; // stores ip address and port #
 	int opt = 1; // options for socket: setting to 1 indicates we can reuse address and port (multiple endpoints?)
-	int addrlen = sizeof(address);
-	char buffer[1024] = { 0 };
-	char* hello = "Hello from server";
+	int addrlen = sizeof(address); 
+	char buffer[1024] = { 0 }; // stores received msgs from client
+	char* hello = "Hello from server"; 
 
 	// Creating socket file descriptor
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -21,9 +21,7 @@ int main(int argc, char const* argv[])
 	}
 
 	// Forcefully attaching socket to the port 8080
-	if (setsockopt(server_fd, SOL_SOCKET,
-				SO_REUSEADDR | SO_REUSEPORT, &opt,
-				sizeof(opt))) {
+	if (setsockopt(server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
 		perror("setsockopt");
 		exit(EXIT_FAILURE);
 	}
@@ -32,9 +30,7 @@ int main(int argc, char const* argv[])
 	address.sin_port = htons(PORT);
 
 	// Forcefully attaching socket to the port 8080
-	if (bind(server_fd, (struct sockaddr*)&address,
-			sizeof(address))
-		< 0) {
+	if (bind(server_fd, (struct sockaddr*)&address, sizeof(address)) < 0) {
 		perror("bind failed");
 		exit(EXIT_FAILURE);
 	}
@@ -58,8 +54,8 @@ int main(int argc, char const* argv[])
 		exit(EXIT_FAILURE);
 	}
 	 
-	printf("%s\n", buffer);
-	send(socket, hello, strlen(hello), 0);
+	printf("%s\n", buffer); // print msg from buffer
+	send(socket, hello, strlen(hello), 0); // send msg to client
 	printf("Hello message sent\n");
 
 	// closing the connected socket
