@@ -1,7 +1,12 @@
 ## Basic Socket Programming:
 * Referenced from https://www.geeksforgeeks.org/socket-programming-cc/
 
-### Server
+### Background Info:
+- We need some way of communicating between two different hosts --> done using sockets
+- Sockets are bidirectional or unidirectional communication pipes between two different hosts. 
+- Server or client can read/write information from the other end
+
+### Server:
 1. Creating a Socket
     - `int sockfd = socket(domain, type, protocol)`
     - sockfd --> a descriptor for the socket
@@ -23,7 +28,7 @@
     - Returns file descriptor refering to that communication socket
     - Connection is established and ready for communication
 
-### Client
+### Client:
 1. Creating a Socket (Same as server)
 2. Connect to socket
     - `int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`

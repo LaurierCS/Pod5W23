@@ -5,6 +5,9 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #define PORT 8080
+
+// argc - number of arguments
+// argv - list of actual arguements
 int main(int argc, char const* argv[])
 {
 	int server_fd, socket; // creating a socket file handler/descriptor and the socket pipe for communication
@@ -12,11 +15,11 @@ int main(int argc, char const* argv[])
 	int opt = 1; // options for socket: setting to 1 indicates we can reuse address and port (multiple endpoints?)
 	int addrlen = sizeof(address);
 	char buffer[1024] = { 0 }; // used for communication --> will hold msg from client
-	char* hello = "Hello from server";
+	char* hello = "Hello from server"; // actual msg to send
 
 	// Creating socket and "identifying" w/ file descriptior
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) { 
-		perror("Error: Could not create socket"); 
+		perror("Error: Could not create socket\n"); 
 		exit(EXIT_FAILURE);
 	}
 
@@ -25,7 +28,8 @@ int main(int argc, char const* argv[])
 		perror("Error: Could not set options");
 		exit(EXIT_FAILURE);
 	}
-	//
+
+	// Assigning address info
 	address.sin_family = AF_INET; // server ip address set as ipv4
 	address.sin_addr.s_addr = INADDR_ANY; // storing ip address of the server (server pc) as server ip address
 	address.sin_port = htons(PORT); // setting the port of the server
@@ -42,7 +46,8 @@ int main(int argc, char const* argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	// TLS Protocol Implementation here
+	// TLS Protocol Implementation here:
+
 
 	// Accepting a connection
 	if ((socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0) {
