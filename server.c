@@ -10,11 +10,7 @@
 // argv - list of actual arguements
 int main(int argc, char const* argv[])
 {
-<<<<<<< HEAD
 	int server_fd, socket_pipe; // creating a socket file handler/descriptor and the socket pipe for communication
-=======
-	int server_fd, socket; // creating a socket file handler/descriptor and the socket pipe for communication
->>>>>>> 5ebac210212d41731ccf063cfae292811494038a
 	struct sockaddr_in address; // stores a address and port # 
 	int opt = 1; // options for socket: setting to 1 indicates we can reuse address and port (multiple endpoints?)
 	int addrlen = sizeof(address);
@@ -54,11 +50,7 @@ int main(int argc, char const* argv[])
 
 
 	// Accepting a connection
-<<<<<<< HEAD
 	if ((socket_pipe = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0) {
-=======
-	if ((socket = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0) {
->>>>>>> 5ebac210212d41731ccf063cfae292811494038a
 		perror("accept");
 		exit(EXIT_FAILURE);
 	}
