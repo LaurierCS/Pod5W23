@@ -1,7 +1,12 @@
 ## Basic Socket Programming:
 * Referenced from https://www.geeksforgeeks.org/socket-programming-cc/
 
-### Server
+### Background Info:
+- We need some way of communicating between two different hosts --> done using sockets
+- Sockets are bidirectional or unidirectional communication pipes between two different hosts. 
+- Server or client can read/write information from the other end
+
+### Server:
 1. Creating a Socket
     - `int sockfd = socket(domain, type, protocol)`
     - sockfd --> a descriptor for the socket
@@ -15,7 +20,7 @@
     - ie. socket knows what ip address and application the recieving host to deliver the msg too
 3. Listening to a socket:
     - `int listen(int sockfd, int backlog);`
-    - Server listents to a socket and waits for a client to make a connection with the server. 
+    - Server listens to a socket and waits for a client to make a connection with the server. 
     - Backlog defines max length of the queue for pending connections to the server 
 4. Accepting a socket connection
     - `int new_socket = accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);`
@@ -23,7 +28,7 @@
     - Returns file descriptor refering to that communication socket
     - Connection is established and ready for communication
 
-### Client
+### Client:
 1. Creating a Socket (Same as server)
 2. Connect to socket
     - `int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`
