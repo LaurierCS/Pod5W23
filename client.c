@@ -1,6 +1,9 @@
 #include <arpa/inet.h>
 #include <stdio.h>
+<<<<<<< HEAD
 #include <stdlib.h>
+=======
+>>>>>>> 5ebac210212d41731ccf063cfae292811494038a
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -25,7 +28,11 @@ int main(int argc, char const* argv[])
     address.sin_port = htons(PORT);
   
     // Handling Server IP:
+<<<<<<< HEAD
     char* ip = "10.0.0.93"; 
+=======
+    char* ip = "127.0.0.1"
+>>>>>>> 5ebac210212d41731ccf063cfae292811494038a
 
     // Converting IPV4 address to network address structure
     if (inet_pton(AF_INET, ip, &address.sin_addr) <= 0) {
@@ -33,11 +40,18 @@ int main(int argc, char const* argv[])
         return(EXIT_FAILURE);
     }
   
+<<<<<<< HEAD
     if ((connect_status = connect(client_fd, (struct sockaddr*)&address, sizeof(address))) < 0) {
         perror("Error: Conenction Failed \n");
         return -1;
     }
 
+=======
+    if ((status = connect(client_fd, (struct sockaddr*)&address, sizeof(address))) < 0) {
+        error("Error: Conenction Failed \n");
+        return -1;
+    }
+>>>>>>> 5ebac210212d41731ccf063cfae292811494038a
     send(client_fd, hello, strlen(hello), 0);
     printf("Hello message sent\n");
     ssize_t socket_status = read(client_fd, buffer, 1024);
