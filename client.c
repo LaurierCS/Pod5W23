@@ -1,9 +1,6 @@
 #include <arpa/inet.h>
 #include <stdio.h>
-<<<<<<< HEAD
 #include <stdlib.h>
-=======
->>>>>>> 5ebac210212d41731ccf063cfae292811494038a
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -28,7 +25,7 @@ int main(int argc, char const* argv[])
     address.sin_port = htons(PORT);
   
     // Handling Server IP:
-    char* ip = "10.0.0.93"; 
+    char* ip = "99.250.194.228"; // testing
 
     // Converting IPV4 address to network address structure
     if (inet_pton(AF_INET, ip, &address.sin_addr) <= 0) {

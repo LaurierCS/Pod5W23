@@ -47,7 +47,7 @@ int main(int argc, char const* argv[])
 	}
 
 	// TLS Protocol Implementation here:
-
+	
 
 	// Accepting a connection
 	if ((socket_pipe = accept(server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0) {

@@ -1,10 +1,11 @@
-## Basic Socket Programming:
-* Referenced from https://www.geeksforgeeks.org/socket-programming-cc/
-
-### Background Info:
+## Background Info:
 - We need some way of communicating between two different hosts --> done using sockets
 - Sockets are bidirectional or unidirectional communication pipes between two different hosts. 
 - Server or client can read/write information from the other end
+- VPN Server will utilize a concurrent structure (ie. handling multiple client sessions at the same time)
+
+## Basic Socket Programming:
+* Referenced from https://www.geeksforgeeks.org/socket-programming-cc/
 
 ### Server:
 1. Creating a Socket
