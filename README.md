@@ -7,11 +7,10 @@
    ▓▓      ▓▓    ▓▓ ▓▓   ▓▓          ▓▓ 
    ██       ██████  ██████      ███████ 
   ```
+
+#### Winter 2023
   
 </div>
-
-## Overview :sparkles:
-- 
 
 ## Development :computer:
 ![GitHub](https://img.shields.io/github/license/LaurierCS/Pod5) 
